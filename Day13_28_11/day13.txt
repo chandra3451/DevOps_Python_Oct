@@ -1,0 +1,177 @@
+
+#  Virtual Env, pip, requirements, JSON
+
+---
+
+# **🔹 Virtual Environment (venv)**
+
+A **virtual environment** is an **isolated Python workspace** where each project keeps its own packages and versions **without affecting other projects**.
+
+### Example:
+
+Global numpy version:
+
+```
+numpy = 3.1.1
+```
+
+But:
+
+* Project A → needs numpy **3.2**
+* Project B → needs numpy **4.0**
+
+Installing globally → **version conflict**.
+
+### ✔ Solution → Create separate venv for each project:
+
+```
+python -m venv myenv      # Project A
+python -m venv newenv     # Project B
+```
+
+Each environment can have its own versions:
+
+* myenv → numpy 3.2
+* newenv → numpy 4.0
+
+No conflicts. Complete isolation.
+
+---
+
+# **🔹 Creating & Using Virtual Environment**
+
+### ✔ Create
+
+```
+python -m venv myenv
+python -m venv newenv
+```
+
+### ✔ Activate
+
+**Windows:**
+
+```
+myenv\Scripts\activate
+```
+
+**Mac/Linux:**
+
+```
+source myenv/bin/activate
+```
+
+### ✔ Deactivate
+
+```
+deactivate
+```
+
+---
+
+# **🔹 pip — Python Package Installer**
+
+Used to install or remove Python packages.
+
+### ✔ Install package
+
+```
+pip install package_name
+```
+
+### ✔ Uninstall
+
+```
+pip uninstall package_name
+```
+
+### ✔ Show installed packages
+
+```
+pip list
+```
+
+---
+
+# **🔹 requirements.txt**
+
+Stores all package versions used by your project.
+
+### ✔ Generate file
+
+```
+pip freeze > requirements.txt
+```
+
+### ✔ Install packages from it
+
+```
+pip install -r requirements.txt
+```
+
+---
+
+# **🔹 Typical Project Setup Workflow**
+
+1️⃣ `git pull`
+2️⃣ `cd project_root/`
+3️⃣ `python -m venv venv`
+4️⃣ Activate venv
+5️⃣ `pip install -r requirements.txt`
+6️⃣ Run project:
+
+```
+python main.py
+```
+
+---
+
+# **🔹 JSON (JavaScript Object Notation)**
+
+Used for:
+
+* config files
+* APIs
+* data storage
+
+Python has built-in `json` module.
+
+### ✔ Convert JSON string → dict
+
+```python
+import json
+data = json.loads('{"name": "Ravi", "age": 25}')
+```
+
+### ✔ Convert dict → JSON string
+
+```python
+json_text = json.dumps({"name": "Ravi", "age": 25})
+```
+
+---
+
+# **🔹 Python Dict vs JSON String**
+
+| Feature              | Python Dictionary                      | JSON String                         |
+| -------------------- | -------------------------------------- | ----------------------------------- |
+| **Type**             | Python object                          | Text/String                         |
+| **Syntax**           | `'key': value` (single quotes allowed) | `"key": value` (double quotes only) |
+| **Purpose**          | Used inside Python code                | Used for files, APIs, storage       |
+| **Usable directly?** | Yes                                    | No (needs conversion)               |
+| **Example**          | `{"name": "Ravi"}`                     | `'{"name": "Ravi"}'`                |
+
+---
+
+# **🔹 Summary**
+
+* venv = isolated environment for each project
+* pip = package installer
+* requirements.txt = list of packages to recreate environment
+* JSON = text format
+* dict = Python object
+* `json.loads()` = JSON → dict
+* `json.dumps()` = dict → JSON
+
+---
+
